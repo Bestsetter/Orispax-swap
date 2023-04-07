@@ -16,11 +16,12 @@ import { useETHBalances } from '../../state/wallet/hooks'
 
 import { YellowCard } from '../Card'
 import Settings from '../Settings'
-import Menu from '../Menu'
+// import Menu from '../Menu'
 
 import Row, { RowBetween } from '../Row'
 import Web3Status from '../Web3Status'
 import VersionSwitch from './VersionSwitch'
+import { Link } from 'react-router-dom'
 
 const HeaderFrame = styled.div`
   display: flex;
@@ -175,7 +176,10 @@ export default function Header() {
           <HeaderElementWrap>
             <VersionSwitch />
             <Settings />
-            <Menu />
+            {/* <Menu /> */}
+            <Link to={'/lottery'} style={{ color: 'white' }}>
+              lottery
+            </Link>
           </HeaderElementWrap>
         </HeaderControls>
       </RowBetween>

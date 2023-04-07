@@ -20,7 +20,9 @@ import DarkModeQueryParamReader from '../theme/DarkModeQueryParamReader'
 // import RemoveLiquidity from './RemoveLiquidity'
 // import { RedirectOldRemoveLiquidityPathStructure } from './RemoveLiquidity/redirects'
 import Swap from './Swap'
-import { RedirectPathToSwapOnly, RedirectToSwap } from './Swap/redirects'
+import Lottery from './Lottery'
+import { RedirectPathToSwapOnly } from './Swap/redirects'
+import Vote from './Vote'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -45,7 +47,6 @@ const BodyWrapper = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 10;
-  opacity: 0.8;
 
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
       padding: 16px;
@@ -55,14 +56,13 @@ const BodyWrapper = styled.div`
   z-index: 1;
 `
 
-const Marginer = styled.div`
-  margin-top: 5rem;
-`
+// const Marginer = styled.div`
+//   margin-top: 5rem;
+// `
 
 export default function App() {
   return (
     <Suspense fallback={null}>
-      {/* <img src="../../public/images/background-img.jpeg" alt="" /> */}
       <HashRouter>
         <Route component={GoogleAnalyticsReporter} />
         <Route component={DarkModeQueryParamReader} />
@@ -75,8 +75,10 @@ export default function App() {
             <Web3ReactManager>
               <Switch>
                 <Route exact strict path="/swap" component={Swap} />
-                <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} />
-                <Route exact strict path="/send" component={RedirectPathToSwapOnly} />
+                {/* <Route exact strict path="/swap/:outputCurrency" component={RedirectToSwap} /> */}
+                {/* <Route exact strict path="/send" component={RedirectPathToSwapOnly} /> */}
+                <Route exact strict path="/lottery" component={Lottery} />
+                <Route exact strict path="/vote" component={Vote} />
                 {/* pool hide */}
                 {/* <Route exact strict path="/find" component={PoolFinder} /> */}
                 {/* <Route exact strict path="/pool" component={Pool} /> */}
@@ -92,7 +94,7 @@ export default function App() {
                 <Route component={RedirectPathToSwapOnly} />
               </Switch>
             </Web3ReactManager>
-            <Marginer />
+            {/* <Marginer /> */}
           </BodyWrapper>
         </AppWrapper>
       </HashRouter>

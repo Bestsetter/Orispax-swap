@@ -54,7 +54,6 @@ function Updaters() {
 
 ReactDOM.render(
   <StrictMode>
-    {/* <img src="../assets/images/background-img.jpeg" alt="" /> */}
     <FixedGlobalStyle />
     <Web3ReactProvider getLibrary={getLibrary}>
       <Web3ProviderNetwork getLibrary={getLibrary}>
